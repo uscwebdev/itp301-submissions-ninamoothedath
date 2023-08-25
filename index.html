@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Nina Moothedath | Student Page</title>
+	<style>
+		.main{
+			text-align:center;
+			margin:auto;
+			margin-top:100px;
+		}
+		h1{
+			font-size:2em;
+			line-height:20px;
+		}
+		button{
+			margin:30px;
+		}
+		.container{
+			width:700px;
+			display:grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap:40px;
+			margin:auto;
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="main">
+
+		<h1>Nina Moothedath</h1>
+		<p><a href = "mailto:mootheda@usc.edu">mootheda@usc.edu<a></p>
+
+		<button id="fav">Favorite Color</button>
+
+		<div class="container">
+
+			<div class="column">
+				<h2>Assignments</h2>
+				<hr>
+			</div> <!-- column 1 -->
+
+			<div class="column">
+				<h2>Labs</h2>
+				<hr>
+				<p><a href="index.html">Lab 1: Student Page</p>
+			</div><!-- column 2 -->
+
+		</div> <!-- container -->
+	</div> <!-- main -->
+
+	<script>
+		document.querySelector("#fav").onclick = function(){
+			document.querySelector("body").style.backgroundColor = "#87CEEB";
+		}
+	</script>
+
+</body>
+</html>
