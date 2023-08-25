@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Assignment 1</title>
+	<style>
+		body{
+			text-align:center;
+			background-color:#e5ffff;
+			color:#333319;
+		}
+		h1{
+			margin-top:40px;
+			margin-bottom:20px;
+		}
+		#bigpic{
+			margin:auto;
+			margin-top:70px;
+			width:20%;
+		}
+		.img-container{
+			display:grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			grid-gap:10px;
+			width:45%;
+			margin:auto;
+		}
+		img{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h1>Fan favorite characters in "The Return of the Obra Dinn"</h1>
+		<div class="img-container">
+				<img id="pic1" src="https://static.wikia.nocookie.net/obradinn/images/3/32/Perrott.png/revision/latest?cb=20201030080932" alt="Pixel art of the character Perrott">
+
+				<img id="pic2" src="https://static.wikia.nocookie.net/obradinn/images/f/fb/Jackson.png/revision/latest?cb=20201030080341" alt="Pixel art of the character Jackson">
+
+				<img id="pic3" src="https://static.wikia.nocookie.net/obradinn/images/3/31/Evans.png/revision/latest?cb=20201030080044" alt="Pixel art of the character Evans">
+
+				<img id="pic4" src="https://static.wikia.nocookie.net/obradinn/images/e/e4/Smith.png/revision/latest?cb=20201117042547" alt="Pixel art of the character Smith">
+
+				<img id="pic5" src="https://static.wikia.nocookie.net/obradinn/images/8/87/Tan.png/revision/latest?cb=20201030080337" alt="Pixel art of the character Tan">
+
+		</div>
+
+		<img id="bigpic" src="https://static.wikia.nocookie.net/obradinn/images/3/32/Perrott.png/revision/latest?cb=20201030080932" alt="Pixel art of the character Perrott">
+	</div><!-- main -->
+
+	<script>
+		document.querySelector("#pic1").onclick = function(){
+			document.querySelector("#bigpic").src = "https://static.wikia.nocookie.net/obradinn/images/3/32/Perrott.png/revision/latest?cb=20201030080932"
+			document.querySelector("#bigpic").alt = "Pixel art of the character Perrott"
+		}
+
+		document.querySelector("#pic2").onclick = function(){
+			document.querySelector("#bigpic").src = "https://static.wikia.nocookie.net/obradinn/images/f/fb/Jackson.png/revision/latest?cb=20201030080341"
+			document.querySelector("#bigpic").alt = "Pixel art of the character Jackson"
+		}
+
+		document.querySelector("#pic3").onclick = function(){
+			document.querySelector("#bigpic").src = "https://static.wikia.nocookie.net/obradinn/images/3/31/Evans.png/revision/latest?cb=20201030080044"
+			document.querySelector("#bigpic").alt = "Pixel art of the character Evans"
+		}
+
+		document.querySelector("#pic4").onclick = function(){
+			document.querySelector("#bigpic").src = "https://static.wikia.nocookie.net/obradinn/images/e/e4/Smith.png/revision/latest?cb=20201117042547"
+			document.querySelector("#bigpic").alt = "Pixel art of the character Smith"
+		}
+
+		document.querySelector("#pic5").onclick = function(){
+			document.querySelector("#bigpic").src = "https://static.wikia.nocookie.net/obradinn/images/8/87/Tan.png/revision/latest?cb=20201030080337"
+			document.querySelector("#bigpic").alt = "Pixel art of the character Tan"
+
+		}
+	</script>
+</body>
+</html>
