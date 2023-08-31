@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ice Cream Time Shop</title>
+	<style>
+	.header{
+		background-color:#fdaeae;
+		height:100px;
+		padding:20px;
+		text-align:center;
+		margin-bottom:50px;
+	}
+	body{
+		margin:0px;
+		position:relative;
+	}
+	.images{
+		display:grid;
+		grid-template-columns:1fr 1fr 1fr;
+		width:60%;
+		margin:auto;
+		margin-bottom:175px;
+		text-align:center;
+		align-content:center;
+		align-items: center;
+	}
+
+	.box{
+		width:200px;
+		height:200px;
+		margin:auto;
+	}
+	.big{
+		font-size:1.3em;
+	}
+
+	img{
+		width:auto;
+		height:100%;
+		object-fit:contain;
+	}
+
+	.total{
+		margin:50px;
+		text-align:right;
+	}
+	.footer{
+		background-color:#b49982;
+		height:50px;
+		text-align:center;
+		padding:5px;
+	}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Ice Cream Through The Decades</h1>
+		<p>(prices are listed in cents)</p>
+	</div>
+	
+	<div class="images">
+		<div class="box">
+			<img id="one" src="img/1950.jpg" alt="artwork of glass of chocolate ice cream">
+		</div>
+		<div class="box">
+			<img id="two" src="img/1980.jpg" alt="artwork of an ice cream cone">
+		</div>
+		<div class="box">
+			<img id="three" src="img/2000.jpeg" alt="image of two scoops of ice cream">
+		</div>
+		
+		<p class="big">1950's ice cream</p>
+		<p class="big">1980's ice cream</p>
+		<p class="big">2020's ice cream</p>
+
+		<p>5</p>
+		<p>130</p>
+		<p>300</p>
+	</div>
+
+	<div class="total">
+		<p class="big">Cart Subotal: <span id="subtotal">0</span>&cent;</p>
+	</div>
+
+	<div class="footer">
+		<p>	&copy;2023</p>
+	</div>
+
+	<script>
+		/*
+		Workflow:
+			1. Set starting subtotal (0) in global variable "total"
+			2. User clicks on product (.onclick)
+			3. Increase total by amount based on which product user clicked on
+			4. Display new value to users.
+		*/
+
+		// 1. Set starting subtotal (0) in global variable "total"
+		var total = 0;
+
+		document.querySelector("#one").onclick = function(){
+			console.log("click1")
+			// 3. Increase total by amount based on which product user clicked on
+			total= total+5
+
+			// 4. Display new value to users.
+			document.querySelector("#subtotal").innerHTML = total
+		}
+
+		document.querySelector("#two").onclick = function(){
+			console.log("click2")
+			// 3. Increase total by amount based on which product user clicked on
+			total= total+130
+
+			// 4. Display new value to users.
+			document.querySelector("#subtotal").innerHTML = total
+		}
+
+		document.querySelector("#three").onclick = function(){
+			console.log("click3")
+			// 3. Increase total by amount based on which product user clicked on
+			total= total+300
+
+			// 4. Display new value to users.
+			document.querySelector("#subtotal").innerHTML = total
+		}
+	</script>
+</body>
+</html>
