@@ -33,16 +33,44 @@
 	<script src="https://viterbi-web.usc.edu/~zune/itp301/random.js"></script>
 
 	<script>
-		var amount = document.querySelector("#usd").innerHTML;
-		amount = parseInt(amount)
-		console.log(amount)
-		
+		/* 
+		Workflow:
+		1. Detect user click on a button (EUR or CNY)
+		2. Save displayed USD value into a variable
+		3. Convert the variable above into an integer
+		4. Create a new variable to store converted value from USD to EUR or CNY
+		5. Display calculated value in the appropriate <span> tag.
+		*/
 		document.querySelector("#eur-btn").onclick = function(){
-			document.querySelector("#eur-value").innerHTML = amount * 0.93;
+			
+			// 2. Save displayed USD value into a variable
+			var amount = document.querySelector("#usd").innerHTML;
+
+			// 3. Convert the variable above into an integer
+			amount = parseInt(amount);
+			console.log(amount);
+
+			// 4. Create a new variable to store converted value from USD to EUR or CNY
+			var eur = amount *0.93;
+			
+			// 5. Display calculated value in the appropriate <span> tag.
+			document.querySelector("#eur-value").innerHTML = eur;
 		}
 
 		document.querySelector("#cny-btn").onclick = function(){
-			document.querySelector("#cny-value").innerHTML = amount * 6.77;
+			// 2. Save displayed USD value into a variable
+			var amount = document.querySelector("#usd").innerHTML;
+
+			// 3. Convert the variable above into an integer
+			amount = parseInt(amount);
+			console.log(amount);
+
+			// 4. Create a new variable to store converted value from USD to EUR or CNY
+			var cyn = amount *6.77;
+			
+			// 5. Display calculated value in the appropriate <span> tag.
+
+			document.querySelector("#cny-value").innerHTML = cyn;
 		}
 		
 	</script>
