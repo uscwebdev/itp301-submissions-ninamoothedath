@@ -91,40 +91,54 @@
 	<script>
 		/*
 		Workflow:
-			1. Set starting subtotal (0) in global variable "total"
-			2. User clicks on product (.onclick)
+			1. User clicks on product (.onclick)
+			2. Save current total in a variable, convert into integer
 			3. Increase total by amount based on which product user clicked on
 			4. Display new value to users.
 		*/
 
-		// 1. Set starting subtotal (0) in global variable "total"
-		var total = 0;
 
 		document.querySelector("#one").onclick = function(){
-			console.log("click1")
+			console.log("click1");
+			
+			// 2. Save current total in a variable, convert into integer
+			var total = document.querySelector("#subtotal").innerHTML;
+			total = parseInt(total);
+
 			// 3. Increase total by amount based on which product user clicked on
-			total= total+5
+			total= total+5;
 
 			// 4. Display new value to users.
-			document.querySelector("#subtotal").innerHTML = total
+			document.querySelector("#subtotal").innerHTML = total;
 		}
 
 		document.querySelector("#two").onclick = function(){
-			console.log("click2")
+			console.log("click2");
+			
+			// 2. Save current total in a variable, convert into integer
+			var total = document.querySelector("#subtotal").innerHTML;
+			total = parseInt(total);
+
 			// 3. Increase total by amount based on which product user clicked on
-			total= total+130
+			total= total+130;
 
 			// 4. Display new value to users.
-			document.querySelector("#subtotal").innerHTML = total
+			document.querySelector("#subtotal").innerHTML = total;
 		}
 
 		document.querySelector("#three").onclick = function(){
-			console.log("click3")
+			console.log("click3");
+
+			// 2. Save current total in a variable, convert into integer
+			var total = document.querySelector("#subtotal").innerHTML;
+			total = parseInt(total);
+
 			// 3. Increase total by amount based on which product user clicked on
-			total= total+300
+			total= total+300;
 
 			// 4. Display new value to users.
-			document.querySelector("#subtotal").innerHTML = total
+			document.querySelector("#subtotal").innerHTML = total;
+
 		}
 	</script>
 </body>

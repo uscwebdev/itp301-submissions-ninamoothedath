@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ice Cream Time Shop</title>
+	<style>
+	.header{
+		background-color:#fdaeae;
+		height:100px;
+		padding:20px;
+		text-align:center;
+		margin-bottom:50px;
+	}
+	body{
+		margin:0px;
+		position:relative;
+	}
+	.images{
+		display:grid;
+		grid-template-columns:1fr 1fr 1fr;
+		width:60%;
+		margin:auto;
+		margin-bottom:75px;
+		text-align:center;
+		align-content:center;
+		align-items: center;
+	}
+
+	.box{
+		width:200px;
+		height:200px;
+		margin:auto;
+	}
+	.big{
+		font-size:1.3em;
+	}
+
+	img{
+		width:auto;
+		height:100%;
+		object-fit:contain;
+	}
+
+	.total{
+		margin:50px;
+		padding:50px;
+		text-align:right;
+		display:flex;
+		justify-content: space-between;
+	}
+
+	.footer{
+		background-color:#b49982;
+		height:50px;
+		text-align:center;
+		padding:5px;
+	}
+	</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Ice Cream Through The Decades</h1>
+		<p>(prices are listed in cents)</p>
+	</div>
+	
+	<div class="images">
+		<div class="box">
+			<img id="one" src="img/1950.jpg" alt="artwork of glass of chocolate ice cream">
+		</div>
+		<div class="box">
+			<img id="two" src="img/1980.jpg" alt="artwork of an ice cream cone">
+		</div>
+		<div class="box">
+			<img id="three" src="img/2000.jpeg" alt="image of two scoops of ice cream">
+		</div>
+		
+		<p class="big">1950's ice cream</p>
+		<p class="big">1980's ice cream</p>
+		<p class="big">2020's ice cream</p>
+
+		<p>5</p>
+		<p>130</p>
+		<p>300</p>
+	</div>
+
+	<div class="total">
+
+		<div>
+			<p class="big">Remaining balance: <span id="balance">0</span>&cent;</p>
+			<input type="field" id="funds">
+			<button id="add">Add funds (in &cent;)</button>
+		</div>
+
+			<p class="big">Cart Subotal: <span id="subtotal">0</span>&cent;</p>
+
+	</div> <!-- total -->
+
+	<div class="footer">
+		<p>	&copy;2023</p>
+	</div>
+
+	<script>
+		/*
+		Workflow:
+
+		Adding price:
+		1. User hits add
+		2. Save input in field as variable
+		3. Make variable an integer
+		4. Clear field
+		5. Get balance, make it an integer
+		6. Update balance by adding input
+		7. Display new balance
+
+		Clicking items
+			1. User clicks on product (.onclick)
+			2. Save balance as variable
+				a. if balance >= item's price, move to step 4
+				b. if balance > price, display insufficient funds, back to step 1
+			3. Subtract item's price from balance
+			4. Display new balance
+			5. Get subtotal, make it an integer
+			6. Add item price to subtotal
+			7. Display new subtotal
+		*/
+
+		document.querySelector("#add").onclick = function(){
+
+			// 2. Save input in field as variable
+			var added = document.querySelector("#funds").value;
+
+			// 3. Make variable an integer
+			added = parseInt(added);
+
+			// 4. Clear field
+			document.querySelector("#funds").value="";
+
+			// 5. get balance, make it an integer
+			var balance = document.querySelector("#balance").innerHTML;
+			balance = parseInt(balance);
+
+			// 6. Update balance by adding input
+			balance = balance+added;
+
+			// 7. Display new balance
+			document.querySelector("#balance").innerHTML=balance;
+
+		}
+
+
+		document.querySelector("#one").onclick = function(){
+
+			console.log("click1");
+			
+			// 2. Save balance as variable, convert to integer
+			var balance = document.querySelector("#balance").innerHTML;
+			balance = parseInt(balance);
+
+			// 2a. if balance >= item's price, move to step 4
+			// 2b. if balance > price, display insufficient funds, back to step 
+			if (balance >= 5){
+
+				// 3. Subtract item's price from balance
+				balance = balance - 5;
+
+				// 4. Display new balance
+				document.querySelector("#balance").innerHTML=balance;
+
+				// 5. Get subtotal, make it an integer
+				var total = document.querySelector("#subtotal").innerHTML;
+				total = parseInt(total);
+
+				// 6. Add item price to subtotal
+				total= total+5;
+
+				// 7. Display new subtotal
+				document.querySelector("#subtotal").innerHTML = total;
+			} else {
+				// 2b. if balance > price, display insufficient funds, back to step 
+				alert ("Insufficient Funds!");
+			}
+		}
+
+		document.querySelector("#two").onclick = function(){
+			console.log("click2");
+			
+			// 2. Save balance as variable, convert to integer
+			var balance = document.querySelector("#balance").innerHTML;
+			balance = parseInt(balance);
+
+			// 2a. if balance >= item's price, move to step 4
+			// 2b. if balance > price, display insufficient funds, back to step 
+			if (balance >= 130){
+
+				// 3. Subtract item's price from balance
+				balance = balance - 130;
+
+				// 4. Display new balance
+				document.querySelector("#balance").innerHTML=balance;
+
+				// 5. Get subtotal, make it an integer
+				var total = document.querySelector("#subtotal").innerHTML;
+				total = parseInt(total);
+
+				// 6. Add item price to subtotal
+				total= total+130;
+
+				// 7. Display new subtotal
+				document.querySelector("#subtotal").innerHTML = total;
+			} else {
+				// 2b. if balance > price, display insufficient funds, back to step 
+				alert ("Insufficient Funds!");
+			}
+		}
+
+		document.querySelector("#three").onclick = function(){
+			console.log("click3");
+
+			// 2. Save balance as variable, convert to float (because my price is in cents)
+			var balance = document.querySelector("#balance").innerHTML;
+			balance = parseInt(balance);
+
+			// 2a. if balance >= item's price, move to step 4
+			// 2b. if balance > price, display insufficient funds, back to step 
+			if (balance >= 300){
+
+				// 3. Subtract item's price from balance
+				balance = balance - 300;
+
+				// 4. Display new balance
+				document.querySelector("#balance").innerHTML=balance;
+
+				// 5. Get subtotal, make it an integer
+				var total = document.querySelector("#subtotal").innerHTML;
+				total = parseInt(total);
+
+				// 6. Add item price to subtotal
+				total= total+300;
+
+				// 7. Display new subtotal
+				document.querySelector("#subtotal").innerHTML = total;
+			} else {
+				// 2b. if balance > price, display insufficient funds, back to step 
+				alert ("Insufficient Funds!");
+			}
+
+		}
+	</script>
+</body>
+</html>
