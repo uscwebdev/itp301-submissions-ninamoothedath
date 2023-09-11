@@ -61,6 +61,8 @@
 		whichNum : will be true at first so the number entered is saved as the first number, will switch to false when operator is clicked so that the next number entered will be saved as the second number
 		operation: will save which mathematical operation was chosen
 		result: will save the result of the first number, second number when operation is done
+		dot1: is true if there's a dot in numOne (is false at first)
+		dot2: is true if there's a dot in numTwo (is false at first)
 		*/
 
 		var numOne;
@@ -68,16 +70,21 @@
 		var whichNum = true;
 		var operation;
 		var result;
+		var dot1 = false;
+		var dot2 =false ;
 
 		/* 
 		Step 1 workflow: User enters the first number (could be multi-digit)
 
 		1a. user hits a number button
 		1b. check if it's the first number or second number (if first continue, if second go to 2a)
-		1c. get current first number from number button (innerHTML of display)
+		1c. get current first number from number button (value of display)
 		1d. Check if the current number is 0.
 			1d1 if it is just make the first number the new number (innerHTML of button pushed)
 			1d2 if isnt add the new number onto the end of the first number
+			extra1 for the dot, check if there's already a dot in the number
+			extra2 if there is a dot, don't add a new one
+			extra3 after a dot is entered, change dot2 to true
 		1e. Display new first number
 
 
@@ -85,10 +92,13 @@
 
 		(this can only start after the user hits an operation, which we can tell because when an operation is clicked whichNum becomes false, and then when the user hits a button in step 1, it knows it's the second number so it directs to step 2)
 
-		3a. get current second number from number button (innerHTML of display)
+		3a. get current second number from number button (value of display)
 		3b. Check if the current number is 0.
 			3b1 if it is just make the second number the new number (innerHTML of button pushed)
 			3b2 if isnt add the new number onto the end of the second number
+			extra1 for the dot, check if there's already a dot in the number
+			extra2 if there is a dot, don't add a new dot
+			extra3 after a dot is entered, change dot2 to true
 		3c. Display new second number
 		
 		*/
@@ -98,7 +108,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -118,8 +128,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -149,7 +159,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -169,8 +179,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -199,7 +209,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -219,8 +229,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -249,7 +259,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -269,8 +279,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -299,7 +309,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -319,8 +329,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -348,7 +358,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -368,8 +378,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -397,7 +407,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -417,8 +427,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -446,7 +456,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -466,8 +476,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -496,7 +506,7 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
@@ -516,8 +526,8 @@
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
 				// 3b. Check if the current number is 0.
@@ -545,44 +555,64 @@
 			// 1b. check if it's the first number (which it is if whichNum is still true). If it is then continue
 			if (whichNum) {
 
-				// 1c. get current first number from number button (innerHTML of display)
+				// 1c. get current first number from number button (value of display)
 				numOne = document.querySelector("#display").value;
 				console.log(numOne);
 				
-				// 1d. Check if the current number is 0.
-				if (numOne==0) {
-					// 1d1 if it is just make the first number the new number (innerHTML of button pushed)
-					numOne = document.querySelector("#dot").innerHTML;
+				// extra1 for the dot, check if there's already a dot in the number
+				if (dot1) {
+					// extra2 if there is a dot, don't add a new one
+					console.log("Got a .")
 				} else {
+					// 1d. Check if the current number is 0.
+
+					if (numOne==0) {
+					// 1d1 if it is just make the first number the new number (innerHTML of button pushed)
+
+					numOne = document.querySelector("#dot").innerHTML;
+					} else {
+
 					// 1d2 if isnt add the new number onto the end of the first number
 					numOne = numOne + document.querySelector("#dot").innerHTML;
-				}
+					}
 
+				}
 				console.log(numOne)
+
+				// extra3 after a dot is entered, change dot1 to true
+					dot1=true;
 
 				// 1e. Display new first number
 				document.querySelector("#display").value =numOne;
 
 			//1b whichNum is false, which means, user is inputing the second number
 			} else {
-				// 3a. get current second number from number button (innerHTML of display)
-				numTwo = document.querySelector("#display").innerHTML;
+				// 3a. get current second number from number button (value of display)
+				numTwo = document.querySelector("#display").value;
 				console.log(numTwo);
 
-				// 3b. Check if the current number is 0.
-				if (numTwo==0) {
 
-					// 3b1 if it is just make the second number the new number (innerHTML of button pushed)
-					numTwo = document.querySelector("#dot").innerHTML;
+				// extra1 for the dot, check if there's already a dot in the number
+				if (dot2) {
+					// extra2 if there is a dot, don't add a new one
+					console.log("Got a .")
+					} else {// 3b. Check if the current number is 0.
+						if (numTwo=="0") {
+							// 3b1 if it is just make the second number the new number (innerHTML of button pushed)
+							numTwo = document.querySelector("#dot").innerHTML;
+							console.log("Replace")
+						} else {
 
-
-				} else {
-
-					// 3b2 if isnt add the new number onto the end of the second number
-					numTwo = numTwo + document.querySelector("#n3").innerHTML;
+							// 3b2 if isnt add the new number onto the end of the second number
+							numTwo = numTwo + document.querySelector("#dot").innerHTML;
+						}
 				}
-
 				console.log(numTwo);
+
+				// extra3 after a dot is entered, change dot1 to true
+					dot2 = true;
+
+
 				// 3c. Display new second number
 				document.querySelector("#display").value =numTwo;
 			}
@@ -598,8 +628,13 @@
 		*/
 
 		document.querySelector("#add").onclick = function(){
+			// 3b. gets operation, saves operation in variable
 			operation = document.querySelector("#add").innerHTML;
+			
+			// 3c. Switch variable to the second number in future inputs
 			whichNum = false;
+
+			// 3d. Clear display
 			document.querySelector("#display").value = "0";
 		}
 
@@ -659,11 +694,14 @@
 		5a. user hits AC button
 		5b. clear display (show 0)
 		5c. set whichNum to true
+		5d. set dot1 and dot2 to false
 		*/
 
 		document.querySelector("#AC").onclick = function(){
 			document.querySelector("#display").value = "0";
 			whichNum = true;
+			dot1 = false;
+			dot2 = false;
 		}
 
 	</script>
