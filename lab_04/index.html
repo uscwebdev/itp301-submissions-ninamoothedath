@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Assignment 1</title>
+	<style>
+		body{
+			text-align:center;
+			background-color:#e5ffff;
+			color:#333319;
+		}
+		h1{
+			margin-top:40px;
+			margin-bottom:20px;
+		}
+		#bigpic{
+			margin:auto;
+			margin-top:70px;
+			width:20%;
+		}
+		.img-container{
+			display:grid;
+			grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+			grid-gap:10px;
+			width:45%;
+			margin:auto;
+		}
+		img{
+			width:100%;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h1>Fan favorite characters in "The Return of the Obra Dinn"</h1>
+		<div class="img-container">
+				<img class="pic" src="img/perrott.jpg" alt="Pixel art of the character Perrott">
+
+				<img class="pic" src="img/jackson.jpg" alt="Pixel art of the character Jackson">
+
+				<img class="pic" src="img/evans.jpg" alt="Pixel art of the character Evans">
+
+				<img class="pic" src="img/smith.jpg" alt="Pixel art of the character Smith">
+
+				<img class="pic" src="img/tan.jpg" alt="Pixel art of the character Tan">
+
+		</div>
+
+		<img id="bigpic" src="img/perrott.jpg" alt="Pixel art of the character Perrott">
+		<p id="caption">Pixel art of the character Perrott</p>
+	</div><!-- main -->
+
+	<script>
+		// This creates the an array of thumbnail images
+		var pics = document.querySelectorAll(".pic")
+		console.log(pics)
+		
+		// this defines the function to change the image, caption, and alt
+		function changeImg(newAlt,newSrc){
+			document.querySelector("#bigpic").src = newSrc
+			document.querySelector("#caption").innerHTML = newAlt
+			document.querySelector("#bigpic").alt = newAlt
+		}
+
+		// This for loop copies the code for all the pictures in the pics array
+		for(i=0;i<pics.length;i++){
+			pics[i].onclick = function(){
+				changeImg(this.alt,this.src)
+			}
+		}
+	</script>
+</body>
+</html>
