@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Liar's Dice</title>
+	<style type="">
+		.main{
+			margin:50px;
+			width:80%;
+		}
+		.box{
+			display:flex;
+			width:500px;
+			margin-top:25px;
+			margin-bottom:25px;
+		}
+		img{
+			width:80px;
+			margin:10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="main">
+		<h1>Liar's Dice</h1>
+			<label for="guess">Enter your guess:</label>
+			<input type="text" id="guess"></input>
+			<button>Submit</button>
+
+		<div class="box">
+			<img src="dice_images/1.png" alt="die showing 1">
+			<img src="dice_images/1.png" alt="die showing 1">
+			<img src="dice_images/1.png" alt="die showing 1">
+			<img src="dice_images/1.png" alt="die showing 1">
+			<img src="dice_images/1.png" alt="die showing 1">
+		</div>
+
+		<p>Results:<span id="results"></span></p>
+
+	</div>
+
+	<script>
+		// When the button is clicked
+		document.querySelector("button").onclick = function(){
+			console.log("clicked")
+			// Create an empty array numbers (or similar) to store random numbers
+			var numbers = [];
+
+			// Loop through numbers array and populate it with five (5) random integers.
+			for(i=0;i<6;i++){
+				numbers[i] = Math.floor( Math.random() * 6 + 1 );
+			}
+
+			// Create images array (or similar) that stores five (5) dice images from the DOM.
+			var images = document.querySelectorAll("img");
+
+			// This function creates the new src to set each image to the one showing the corresponding value stored in the numbers array
+			function imgSrc(i){
+				var newSrc = "dice_images/"+ numbers[i] + ".png";
+				return newSrc;
+			}
+
+			// Loop through images array and set each image to the one that shows corresponding value stored in numbers array. (Used the imgSrc function above)
+			for (i=0;i<images.length;i++){
+				images[i].src=imgSrc(i);
+			}
+
+			// This loops through each of the random numbers to see if userInput(the parameter) matches any of them, then returns a boolean whether there was a match 
+			function UserInputCorrect(userInput){
+				var correct = false;
+				for (i=0;i<images.length;i++){
+					if (userInput == numbers[i]){
+						var correct = true;
+					}
+				}
+				return correct
+			}
+			// this takes the userInput from the text field to be put into the UserInputCorrect function as a parameter
+			var userInput = document.querySelector("#guess").value;
+			if (UserInputCorrect(userInput)){
+
+				// If users guessed at least one (1) value correctly, display a success message in green.
+				document.querySelector("#results").innerHTML = "You guessed correct!";
+				document.querySelector("#results").style.color = "green";
+			} else {
+
+				// Otherwise, display an error / failure message in red.
+				document.querySelector("#results").innerHTML = "Try Again";
+				document.querySelector("#results").style.color = "red";
+
+			}
+
+
+		}
+
+		
+	</script>
+</body>
+</html>
